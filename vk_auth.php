@@ -5,7 +5,7 @@
     $params = array(
         'client_id' => 'vk1.a.SbEhiDZb0NMtBDz-CnU_WAmmipVhYejbAnJKRjMmoMmepNRW5UQfZwP37MNFpclnhKCm-i5glwJObyATlMwsm6FRrfKmzDRNRaVPp7nOKPhG28h0x0dyvySZduRyxkLAZYZPZP4K0n65M186QYxpJJcp647VHiPeESXsAQupQ26ktHClvzUYaeHH3VaMf3-3CHCe16cU9Foh9ekukrBbMQ',
         'client_secret' => 'zdN4M5YNBcq7UNGth6EK',
-        'redirect_uri' => 'https://localhost/vk_auth.php',
+        'redirect_uri' => 'https://cick-jacking.vercel.app/vk_auth.php',
         'code' => $code
     );
  
