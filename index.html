@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+    <script type="text/javascript">
+        VK.init({
+            apiId: '706e352b706e352b706e352b09737b81727706e706e352b1565c734d9767d29d0b8d8fb',
+            onlyWidgets: true
+        });
+
+        VK.Widgets.AuthLoginButton('vk_auth', { authUrl: '/vk_auth.php' });
+    </script>
+</body>
+
+</html>
