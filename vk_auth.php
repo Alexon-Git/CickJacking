@@ -3,9 +3,9 @@
     $code = $_GET['code'];
  
     $params = array(
-        'client_id' => 'd0f4a515d0f4a515d0f4a5153cd3e111b3dd0f4d0f4a515b5f8a0052fa396ebac3c73bf',
-        'client_secret' => 'ВАШ_СЕКРЕТНЫЙ_КЛЮЧ',
-        'redirect_uri' => 'https://ВАШ_САЙТ/vk_auth.php',
+        'client_id' => 'vk1.a.SbEhiDZb0NMtBDz-CnU_WAmmipVhYejbAnJKRjMmoMmepNRW5UQfZwP37MNFpclnhKCm-i5glwJObyATlMwsm6FRrfKmzDRNRaVPp7nOKPhG28h0x0dyvySZduRyxkLAZYZPZP4K0n65M186QYxpJJcp647VHiPeESXsAQupQ26ktHClvzUYaeHH3VaMf3-3CHCe16cU9Foh9ekukrBbMQ',
+        'client_secret' => 'zdN4M5YNBcq7UNGth6EK',
+        'redirect_uri' => 'https://localhost/vk_auth.php',
         'code' => $code
     );
  
