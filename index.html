@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Авторизация через ВК</title>
-  
+
   <!-- Подключаем SDK ВК -->
   <script src="https://vk.com/js/api/openapi.js"></script>
 
@@ -18,13 +19,13 @@
       return new Promise((resolve, reject) => {
 
         VK.Auth.login(response => {
-        
+
           if (response.session) {
             resolve(response);
           } else {
-            reject(new Error('Не удалось авторизоваться')); 
+            reject(new Error('Не удалось авторизоваться'));
           }
-      
+
         });
 
       });
@@ -42,7 +43,7 @@
   <button onclick="authVK()">Войти через ВК</button>
 
   <script>
-    
+
     var button = document.querySelector('button');
 
     button.addEventListener('click', () => {
@@ -54,14 +55,31 @@
         })
         .catch(error => {
           // произошла ошибка
-          console.error(error); 
+          console.error(error);
         });
 
     });
 
   </script>
 
-  <a href="https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app"> перейти по ссылке</a>
+  <a
+    href="https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app">
+    перейти по ссылке</a>
+
+  <button onclick="authVK2()">Войти через ВК</button>
+  <script>
+    var urlString = 'https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app';
+
+    var url = new URL(urlString);
+    // OR: If you want to use the current page's URL
+    var url = window.location;
+
+    var access_token = new URLSearchParams(url.search).get('access_token');
+    var token = new URL("https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app").hash.split('&').filter(function (el) { if (el.match('access_token') !== null) return true; })[0].split('=')[1];
+
+    alert(token);
+  </script>
 
 </body>
+
 </html>

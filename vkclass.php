@@ -22,7 +22,7 @@ class Vk{
         ]);
         $url = "https://oauth.vk.com/access_token?".$params;
         $response = file_get_contents($url);
-        $data = json_decode($response, true);
+        $data = json_decode(json: $response, true);
 
         return $data;
     }
