@@ -8,7 +8,7 @@ class Vk{
 
     public function authorizeUrl(){
         $auth = "https://oauth.vk.com/authorize?client_id={$this->appid}&client_secret={$this->protectedkey}";
-        $auth.= "&v=5.63&response_type=code&redirect_uri={$this->url}"; //возможно uri
+        $auth.= "&v=5.63&response_type=code&scope=phone_number&eredirect_uri={$this->url}"; //возможно uri
         // $auth.= "&scope=email";
         return $auth;
     }
