@@ -8,15 +8,35 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
-    <script type="text/javascript">
-        VK.init({
-            apiId: 'vk1.a.SbEhiDZb0NMtBDz-CnU_WAmmipVhYejbAnJKRjMmoMmepNRW5UQfZwP37MNFpclnhKCm-i5glwJObyATlMwsm6FRrfKmzDRNRaVPp7nOKPhG28h0x0dyvySZduRyxkLAZYZPZP4K0n65M186QYxpJJcp647VHiPeESXsAQupQ26ktHClvzUYaeHH3VaMf3-3CHCe16cU9Foh9ekukrBbMQ',
-            onlyWidgets: true
-        });
+    <div>
+        <header>
+            <h1></h1>
+        </header>
+        <button>Авторизоваится</button>
+        <footer></footer>
+    </div>
 
-        VK.Widgets.AuthLoginButton('vk_auth', { authUrl: './vk_auth.php' });
-    </script>
+    <?
+        includ ("vk.php");
+        includ ("/classes/vkclass.php")
+    ?>
+
+
+
+
+    <!-- <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+    <script type="text/javascript">
+        VK.init(function() {
+           // API initialization succeeded
+           // Your code here
+        }, function() {
+           // API initialization failed
+           // Can reload page here
+      }, '5.103');
+      
+
+    //   https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&redirect_uri=http://127.0.0.1:5500/vk.com
+      </script> -->
 </body>
 
 </html>
