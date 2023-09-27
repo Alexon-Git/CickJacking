@@ -1,6 +1,6 @@
 // Инициализация SDK
 VK.init({
-    apiId: API_ID
+    apiId: 51756977
   });
   
   function loginWithVK() {
