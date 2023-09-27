@@ -85,9 +85,15 @@
 
                     // Запрос данных пользователя
                     return VK.Api.call('users.get', { fields: 'photo_200' });
-
+                    let user = response[0];
+                    let info = document.getElementById('user_info');
+                    info.innerHTML = `
+                    <img src="${user.photo_200}" width="100px"/>
+                    <p>${user.first_name} ${user.last_name}</p>
+                    `;
                 })
                 .then(user => {
+                    let user = response[0]; // п
 
                     // Вывод данных на страницу
                     let info = document.getElementById('user_info');
