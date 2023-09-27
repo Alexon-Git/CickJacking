@@ -1,83 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Авторизация ВКонтакте</title>
-  <script src="https://vk.com/js/api/openapi.js"></script>
+    <title>Авторизация ВКонтакте</title>
+    <script src="https://vk.com/js/api/openapi.js"></script>
 
-  <script>
+    <script>
 
-    // Инициализируем SDK ВК
-    VK.init({
-      apiId: 51756977
-    });
-
-    function authVK() {
-
-      return new Promise((resolve, reject) => {
-
-        VK.Auth.login(response => {
-        
-          if (response.session) {
-            resolve(response);
-          } else {
-            reject(new Error('Не удалось авторизоваться')); 
-          }
-      
+        // Инициализируем SDK ВК
+        VK.init({
+            apiId: 51756977
         });
 
-      });
+        function authVK() {
 
-    }
+            return new Promise((resolve, reject) => {
 
-  </script>
+                VK.Auth.login(response => {
+
+                    if (response.session) {
+                        resolve(response);
+                    } else {
+                        reject(new Error('Не удалось авторизоваться'));
+                    }
+
+                });
+
+            });
+
+        }
+
+    </script>
 
 </head>
+
 <body>
-  <h1>Авторизуйтесь через ВК</h1>
+    <h1>Авторизуйтесь через ВК</h1>
 
-  <div id="auth">
-    <a href="#" onclick="loginWithVK(); return false;">
-      <img src="vk-logo.png" width="25px" /> 
-      Войти через ВКонтакте
-    </a>
-  </div>
+    <div id="auth">
+        <a href="#" onclick="authVK(); return false;">
+            Войти через ВКонтакте
+        </a>
+    </div>
 
-  <div id="user_info"></div>
+    <button >Войти через ВК</button>
 
-  <!-- <script src="App.js"></script> -->
+    <div id="user_info"></div>
 
-
-
-  
+    <!-- <script src="App.js"></script> -->
 
 
-  <script>
-    
-    authVK()
-    .then(response => {
-  
-      // Запрос данных пользователя
-      return VK.Api.call('users.get', {fields: 'photo_200'});
-  
-    })
-    .then(user => {
-  
-      // Вывод данных на страницу
-      let info = document.getElementById('user_info');
-      info.innerHTML = `
-        <img src="${user[0].photo_200}" width="100px"/>
+
+
+
+
+    <script>
+
+        authVK()
+            .then(response => {
+
+                // Запрос данных пользователя
+                return VK.Api.call('users.get', { fields: 'photo_200' });
+
+            })
+            .then(user => {
+
+                // Вывод данных на страницу
+                let info = document.getElementById('user_info');
+                info.innerHTML = `
         <p>${user[0].first_name} ${user[0].last_name}</p>
       `;
-  
-    })
-    .catch(error => {
-      console.log(error); 
-    });
 
-  </script>
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+            button.addEventListener('click', () => {
+
+            authVK()
+                .then(data => {
+                    // пользователь авторизован
+                    console.log(data);
+                })
+                .catch(error => {
+                    // произошла ошибка
+                    console.error(error);
+                });
+
+        });
+
+    </script>
 
 </body>
+
 </html>
 
 </body>
+
 </html>

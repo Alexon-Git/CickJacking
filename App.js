@@ -28,7 +28,7 @@ VK.init({
       // Вывод данных на страницу
       let info = document.getElementById('user_info');
       info.innerHTML = `
-        <img src="${user[0].photo_200}" width="100px"/>
+        // <img src="${user[0].photo_200}" width="100px"/>
         <p>${user[0].first_name} ${user[0].last_name}</p>
       `;
   
