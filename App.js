@@ -1,10 +1,4 @@
-
-
-
-let a = document.querySelector('.btn');
-
-a.addEventListener('click', () => {
-
+document.querySelector('.btn').addEventListener('click', () => {
     authVK()
         .then(data => {
             console.log(data);
