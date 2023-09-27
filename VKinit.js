@@ -6,7 +6,7 @@ VK.init({
 
 
 class Login {
-    authVK() {
+    async authVK() {
         return new Promise((resolve, reject) => {
             VK.Auth.login(response => {
                 if (response.session) {
@@ -19,4 +19,4 @@ class Login {
     }
 }
 
-module.export = {Login};
+module.export = Login;
