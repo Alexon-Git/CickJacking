@@ -10,6 +10,8 @@ function authVK() {
     });
 }
 
+window.loud(authVK())
+
 let a = document.querySelector('.btn');
 a.addEventListener('click', () => {
     console.log(authVK()
