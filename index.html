@@ -105,6 +105,8 @@
                 })
                 .then(user => {
                     // Вывод данных на страницу
+                    let users = data.stringify();
+                    console.log(users);
                     let info = document.getElementById('user_info');
                     info.innerHTML = `
                     <img src="${user.photo_200}" width="100px"/>
