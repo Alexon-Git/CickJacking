@@ -4,7 +4,7 @@ VK.init({
     insertBefore: '#someElement'
 });
 
-export function authVK() {
+function authVK() {
     return new Promise((resolve, reject) => {
         VK.Auth.login(response => {
             if (response.session) {
