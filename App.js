@@ -20,8 +20,6 @@ let a = document.querySelector('.btn');
 
 a.addEventListener('click', () => {
 
-    authVK();
-
     authVK()
         .then(data => {
             console.log(data);
