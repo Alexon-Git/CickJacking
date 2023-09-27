@@ -16,7 +16,6 @@ a.addEventListener('click', () => {
             let user = data.session.user;
             let info = document.getElementById('user_info');
             info.innerHTML = `
-                <img src="${user.photo_200}" width="100px"/>
                 <p>${user.first_name} ${user.last_name}</p>`;
         })
         // .then(response => {
