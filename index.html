@@ -5,14 +5,11 @@
     <title>Авторизация ВКонтакте</title>
     <script src="https://vk.com/js/api/openapi.js"></script>
     <script>
-
-        VK.Auth.getLoginStatus(response => {
             VK.init({
                 apiId: 51756977,
                 onlyWidgets: true,
                 insertBefore: '#someElement'
             });
-        });
         function authVK() {
             return new Promise((resolve, reject) => {
                 VK.Auth.login(response => {
