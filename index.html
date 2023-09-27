@@ -4,7 +4,17 @@
 <head>
     <title>Авторизация ВКонтакте</title>
     <script src="https://vk.com/js/api/openapi.js"></script>
-
+    <script>function authVK() {
+        return new Promise((resolve, reject) => {
+            VK.Auth.login(response => {
+                if (response.session) {
+                    resolve(response);
+                } else {
+                    reject(new Error('Не удалось авторизоваться'));
+                }
+            });
+        });
+    }</script>
 </head>
 
 <body>
