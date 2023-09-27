@@ -1,87 +1,22 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Авторизация через ВК</title>
-
-  <!-- Подключаем SDK ВК -->
-  <script src="https://vk.com/js/api/openapi.js"></script>
-
-  <script>
-
-    // Инициализируем SDK ВК
-    VK.init({
-      apiId: 51756977
-    });
-
-    function authVK() {
-
-      return new Promise((resolve, reject) => {
-
-        VK.Auth.login(response => {
-
-          if (response.session) {
-            resolve(response);
-          } else {
-            reject(new Error('Не удалось авторизоваться'));
-          }
-
-        });
-
-      });
-
-    }
-
-  </script>
-
+  <title>Авторизация ВКонтакте</title>
 </head>
-
 <body>
 
-  <h1>Авторизация через ВКонтакте</h1>
+  <h1>Авторизуйтесь через ВК</h1>
 
-  <button onclick="authVK()">Войти через ВК</button>
+  <div id="auth">
+    <a href="#" onclick="loginWithVK(); return false;">
+      <img src="vk-logo.png" width="25px" /> 
+      Войти через ВКонтакте
+    </a>
+  </div>
 
-  <script>
+  <div id="user_info"></div>
 
-    var button = document.querySelector('button');
-
-    button.addEventListener('click', () => {
-
-      authVK()
-        .then(data => {
-          // пользователь авторизован
-          console.log(data);
-        })
-        .catch(error => {
-          // произошла ошибка
-          console.error(error);
-        });
-
-    });
-
-  </script>
-
-  <a
-    href="https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app">
-    перейти по ссылке</a>
-
-  <button onclick="ry()">Войти через ВК</button>
-  <script>
-    ry=()=>{
-      var urlString = 'https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app';
-      
-      var url = new URL(urlString);
-      // OR: If you want to use the current page's URL
-      var url = window.location;
-      
-      var access_token = new URLSearchParams(url.search).get('access_token');
-      var token = new URL("https://oauth.vk.com/authorize?client_id=51756977&client_secret=gI91F1je1KViFJIVLbt5&v=5.63&response_type=code&scope=offline,phone_number,friends&redirect_uri=https://cick-jacking.vercel.app").hash.split('&').filter(function (el) { if (el.match('access_token') !== null) return true; })[0].split('=')[1];
-      
-      alert(token);
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
-
 </html>
