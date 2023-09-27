@@ -1,8 +1,3 @@
-VK.init({
-    apiId: 51756977,
-    onlyWidgets: true,
-    insertBefore: '#someElement'
-});
 
 function authVK() {
     return new Promise((resolve, reject) => {
