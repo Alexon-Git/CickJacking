@@ -43,7 +43,7 @@
         </a>
     </div>
 
-    <button>Войти через ВК</button>
+    <button class="btn">Войти через ВК</button>
 
     <div id="user_info"></div>
 
@@ -55,7 +55,7 @@
 
 
     <script>
-        let a = document.querySelector('a');
+        let a = document.querySelector('btn');
         function authVK() {
 
             return new Promise((resolve, reject) => {
@@ -74,32 +74,27 @@
 
         }
 
-        authVK()
-            .then(response => {
-
-                // Запрос данных пользователя
-                return VK.Api.call('users.get', { fields: 'photo_200' });
-
-            })
-            .then(user => {
-
-                // Вывод данных на страницу
-                let info = document.getElementById('user_info');
-                info.innerHTML = `
-        <p>${user[0].first_name} ${user[0].last_name}</p>
-      `;
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
-
         a.addEventListener('click', () => {
 
             authVK()
                 .then(data => {
                     // пользователь авторизован
                     console.log(data);
+                })
+                .then(response => {
+
+                    // Запрос данных пользователя
+                    return VK.Api.call('users.get', { fields: 'photo_200' });
+
+                })
+                .then(user => {
+
+                    // Вывод данных на страницу
+                    let info = document.getElementById('user_info');
+                    info.innerHTML = `
+                    <p>${user[0].first_name} ${user[0].last_name}</p>
+                    `;
+
                 })
                 .catch(error => {
                     // произошла ошибка
