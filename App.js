@@ -1,10 +1,11 @@
-const { authVK } = require("./VKinit.js");
+const Login = require("./VKinit.js");
+const Log = new Login();
 
 let a = document.querySelector('.btn');
 
 a.addEventListener('click', () => {
 
-    authVK()
+    Log.authVK()
         .then(data => {
             console.log(data);
             let user = data.session.user;
