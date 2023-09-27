@@ -16,7 +16,7 @@ VK.init({
   }
   
   // Обработка авторизации
-  loginWithVK()
+  authVK()
     .then(response => {
   
       // Запрос данных пользователя
