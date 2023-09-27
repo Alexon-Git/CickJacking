@@ -80,7 +80,7 @@
                 .then(data => {
                     // пользователь авторизован
                     console.log(data);
-                    console.log(response[0]);
+                    console.log(response[0].stringify());
                     let user = response[0];
                     let info = document.getElementById('user_info');
                     info.innerHTML = `
