@@ -12,11 +12,11 @@ function authVK() {
 
 
 let a = document.querySelector('.btn');
-a.addEventListener('click', () => {
-    console.log(authVK()
-    .then(data => {
-        console.log(data);}))
-});
+// a.addEventListener('click', () => {
+//     console.log(authVK()
+//     .then(data => {
+//         console.log(data);}))
+// });
 
 a.addEventListener('click', () => {
 
