@@ -38,12 +38,12 @@
     <h1>Авторизуйтесь через ВК</h1>
 
     <div id="auth">
-        <a href="#" onclick="authVK(); return false;">
+        <a href="#" onclick="authVK(); return false;" class="a">
             Войти через ВКонтакте
         </a>
     </div>
 
-    <button >Войти через ВК</button>
+    <button>Войти через ВК</button>
 
     <div id="user_info"></div>
 
@@ -55,6 +55,24 @@
 
 
     <script>
+        let a = document.querySelector('a');
+        function authVK() {
+
+            return new Promise((resolve, reject) => {
+
+                VK.Auth.login(response => {
+
+                    if (response.session) {
+                        resolve(response);
+                    } else {
+                        reject(new Error('Не удалось авторизоваться'));
+                    }
+
+                });
+
+            });
+
+        }
 
         authVK()
             .then(response => {
@@ -76,7 +94,7 @@
                 console.log(error);
             });
 
-            button.addEventListener('click', () => {
+        a.addEventListener('click', () => {
 
             authVK()
                 .then(data => {
