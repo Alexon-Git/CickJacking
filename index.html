@@ -4,41 +4,13 @@
 <head>
     <title>Авторизация ВКонтакте</title>
     <script src="https://vk.com/js/api/openapi.js"></script>
-    <script>
-            VK.init({
-                apiId: 51756977,
-                onlyWidgets: true,
-                insertBefore: '#someElement'
-            });
-        function authVK() {
-            return new Promise((resolve, reject) => {
-                VK.Auth.login(response => {
-                    if (response.session) {
-                        resolve(response);
-                    } else {
-                        reject(new Error('Не удалось авторизоваться'));
-                    }
-                });
-            });
-        }</script>
+    <script src="App.js"></script>
 </head>
 
 <body>
     <h1>Авторизуйтесь через ВК</h1>
-
-    <!-- <div id="auth">
-        <a href="#" onclick="authVK(); return false;" class="a">
-            Войти через ВКонтакте
-        </a>
-    </div> -->
-
     <button class="btn" onclick="authVK()">Войти через ВК</button>
-
     <div id="user_info"></div>
-
-    <script src="App.js"></script>
-
-
 </body>
 
 </html>
