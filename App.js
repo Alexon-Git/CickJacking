@@ -1,38 +1,38 @@
-// Инициализация SDK
-VK.init({
-    apiId: 51756977
-  });
-  
-  function loginWithVK() {
-    return new Promise(function(resolve, reject) {
-      VK.Auth.login(response => {
-        if (response.session) {
-          resolve(response);  
-        } else {
-          reject(new Error('Не удалось авторизоваться'));
-        }
-      });
+function authVK() {
+    return new Promise((resolve, reject) => {
+        VK.Auth.login(response => {
+            if (response.session) {
+                resolve(response);
+            } else {
+                reject(new Error('Не удалось авторизоваться'));
+            }
+        });
     });
-  }
-  
-  // Обработка авторизации
-  authVK()
-    .then(response => {
-  
-      // Запрос данных пользователя
-      return VK.Api.call('users.get', {fields: 'photo_200'});
-  
-    })
-    .then(user => {
-  
-      // Вывод данных на страницу
-      let info = document.getElementById('user_info');
-      info.innerHTML = `
-        // <img src="${user[0].photo_200}" width="100px"/>
-        <p>${user[0].first_name} ${user[0].last_name}</p>
-      `;
-  
-    })
-    .catch(error => {
-      console.log(error); 
-    });
+}
+
+let a = document.querySelector('.btn');
+a.addEventListener('click', () => {
+    authVK()
+        .then(data => {
+            console.log(data);
+            let user = data.session.user;
+            let info = document.getElementById('user_info');
+            info.innerHTML = `
+                <img src="${user.photo_200}" width="100px"/>
+                <p>${user.first_name} ${user.last_name}</p>`;
+        })
+        .then(response => {
+            return VK.Api.call('users.get', { fields: 'photo_200' });
+        })
+        .then(user => {
+            let user = data.session.user;
+            let info = document.getElementById('user_info');
+            info.innerHTML = `
+                <img src="${user.photo_200}" width="100px"/>
+                <p>${user.first_name} ${user.last_name}</p>`;
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
+});

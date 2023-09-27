@@ -4,128 +4,22 @@
 <head>
     <title>Авторизация ВКонтакте</title>
     <script src="https://vk.com/js/api/openapi.js"></script>
-
-    <script>
-
-        // Инициализируем SDK ВК
-        VK.init({
-            apiId: 51756977
-        });
-
-        function authVK() {
-
-            return new Promise((resolve, reject) => {
-
-                VK.Auth.login(response => {
-
-                    if (response.session) {
-                        resolve(response);
-                    } else {
-                        reject(new Error('Не удалось авторизоваться'));
-                    }
-
-                });
-
-            });
-
-        }
-
-    </script>
-
 </head>
 
 <body>
     <h1>Авторизуйтесь через ВК</h1>
 
-    <div id="auth">
+    <!-- <div id="auth">
         <a href="#" onclick="authVK(); return false;" class="a">
             Войти через ВКонтакте
         </a>
-    </div>
+    </div> -->
 
     <button class="btn">Войти через ВК</button>
 
     <div id="user_info"></div>
 
-    <!-- <script src="App.js"></script> -->
-
-
-
-
-
-
-    <script>
-        let a = document.querySelector('.btn');
-        function authVK() {
-
-            return new Promise((resolve, reject) => {
-
-                VK.Auth.login(response => {
-
-                    if (response.session) {
-                        resolve(response);
-                    } else {
-                        reject(new Error('Не удалось авторизоваться'));
-                    }
-
-                });
-
-            });
-
-        }
-
-        a.addEventListener('click', () => {
-
-            authVK()
-                .then(data => {
-                    // пользователь авторизован
-                    console.log(data);
-                    console.log(data.session);
-                    console.log(data.session.user);
-                    console.log(data.session.user.first_name);
-                    let user = data.session.user;
-                    let info = document.getElementById('user_info');
-                    info.innerHTML = `
-                    <img src="${user.photo_200}" width="100px"/>
-                    <p>${user.first_name} ${user.last_name}</p>
-                    `;
-
-                })
-                .then(response => {
-
-                    // Запрос данных пользователя
-                    return VK.Api.call('users.get', { fields: 'photo_200' });
-                    // let user = response[0];
-                    // let info = document.getElementById('user_info');
-                    // info.innerHTML = `
-                    // // <img src="${user.photo_200}" width="100px"/>
-                    // <p>${user.first_name} ${user.last_name}</p>
-                    // `;
-
-                    // if (!response) {
-                    //     console.error(error);
-                    // }
-                })
-                .then(user => {
-                    // Вывод данных на страницу
-                    // let users = data;
-                    // console.log(user);
-                    // let info = document.getElementById('user_info');
-                    // info.innerHTML = `
-                    // <img src="${user.photo_200}" width="100px"/>
-                    // <p>${user.first_name} ${user.last_name}</p>
-                    // `;
-
-                })
-                .catch(error => {
-                    // произошла ошибка
-                    console.error(error);
-                });
-
-        });
-
-    </script>
-
+    <script src="App.js"></script>
 </body>
 
 </html>
