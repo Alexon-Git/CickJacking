@@ -24,7 +24,7 @@ function generateVkAuthUrl() {
 // Использование
 let authUrl = generateVkAuthUrl(); 
 let info = document.getElementById('user_info');
-info.innerHTML = `authUrl`;
+info.innerHTML = `${authUrl}`;
 
 // Переход по ссылке для начала авторизации
 // window.location = authUrl;
