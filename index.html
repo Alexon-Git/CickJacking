@@ -36,13 +36,13 @@
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
                         console.log(data.error.request_params);
                         const user =data.error.request_params;
+                        info.innerHTML = `<p> https://vk.com/id${user}</p>`;
+                        let info = document.getElementById('p');
                     });
                 }
             }
             VK.Auth.getLoginStatus(authInfo);
         });
-        let info = document.getElementById('p');
-        info.innerHTML = `<p> https://vk.com/id${user}</p>`;
     </script>
     <divi d="p">
 
