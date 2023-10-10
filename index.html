@@ -34,7 +34,7 @@
                 if (response.session) {
                     var vkId = response.session.mid;
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
-                        console.log(data.error.request_params);
+                        console.log(data.error.request_params[2].value);
                         const user =data.error.request_params;
                     });
                 }
