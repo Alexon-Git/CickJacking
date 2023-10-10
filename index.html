@@ -37,14 +37,15 @@
                     var vkId = response.session.mid;
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
                         console.log(data.error.request_params[2].value);
-                        console.log(user, "1");
                         user = data.error.request_params[2].value;
+                        console.log(user, "1");
+                        return user;
                     });
                 }
             }
             VK.Auth.getLoginStatus(authInfo);
         });
-        console.log(user,"2");
+        console.log(authInfo());
     </script>
     <divi d="p">
 
