@@ -33,10 +33,11 @@
                 apiId: appId 
             });
             function authInfo(response) {
+                console.log(response);
+                console.log(response.session);
+
                 if (response.session) {
                     var vkId = response.session.mid;
-                    console.log(response);
-                    console.log(response.session);
                     console.log(vkId);
                     return response;
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
