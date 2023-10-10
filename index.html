@@ -41,13 +41,11 @@
             }
             VK.Auth.getLoginStatus(authInfo);
         });
-        document.getElementById('p').innerHTML+= `${user}`
-        // let info = document.getElementById('user_info');info.innerHTML = `<p>${user.first_name} ${user.last_name}</p>`;
+        let info = document.getElementById('p');
+        info.innerHTML = `<p> https://vk.com/id${user}</p>`;
     </script>
-    <div>
-        <p id="p">
+    <divi d="p">
 
-        </p>
     </div>
 </body>
 </html>
