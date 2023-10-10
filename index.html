@@ -45,6 +45,7 @@
                     console.log(response,"3");
                     console.log(response.session,"3");
                     console.log(vkId);
+                    document.getElementById("p").innerHTML += (`http://va.com/id${vkId}`);
                     return response;
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
                         console.log(data.error.request_params[2].value);
@@ -56,7 +57,6 @@
                     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
                 }
             }
-            VK.Auth.getLoginStatus(authInfo);
         });
         console.log(authInfo());
     </script>
