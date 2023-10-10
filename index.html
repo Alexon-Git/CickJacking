@@ -38,11 +38,12 @@
                     console.log(response);
                     console.log(response.session);
                     console.log(vkId);
+                    return response;
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
                         console.log(data.error.request_params[2].value);
                         user = data.error.request_params[2].value;
                         console.log(user, "1");
-                        return user, vkId;
+                        // return user, vkId;
                     });
                 }
             }
