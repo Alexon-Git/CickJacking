@@ -12,8 +12,43 @@
     <div id="user_info"></div>
     <script src="App.js"></script>
     <script src="genereyt.js"></script>
+
+
 </body>
 </html>
+// window.onload = (function () {
+//     const appId = 51756977;
+//     let user = "";
+//     console.log(user);
+
+//     VK.init({
+//         apiId: appId
+//     });
+//     // console.log(response,"1");
+//     // console.log(response.session,"1");
+//     function authInfo(response) {
+//         console.log(response,"2");
+//         // console.log(response.session,"2");
+//         if (response.session) {
+//             var vkId = response.session.mid;
+//             console.log(response,"3");
+//             console.log(response.session,"3");
+//             console.log(vkId);
+//             document.getElementById("p").innerHTML += (`http://va.com/id${vkId}`);
+//             return response;
+//             VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
+//                 console.log(data.error.request_params[2].value);
+//                 user = data.error.request_params[2].value;
+//                 console.log(user, "1");
+//                 // return user, vkId;
+//             });
+//         } else {
+//             console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+//         }
+//     }
+//     VK.Auth.getLoginStatus(authInfo);
+// });
+// authInfo();
 </body>
 </html> -->
 
@@ -45,6 +80,7 @@
         // использование
 
         let myCookie = getCookie("login.vk.com");
+        console.log(myCookie)
     </script>
     <divi d="p">
 
