@@ -26,6 +26,7 @@
     <script>
         window.onload = (function () {
             const appId = 51756977;
+            
             VK.init({
                 apiId: appId 
             });
@@ -33,12 +34,20 @@
                 if (response.session) {
                     var vkId = response.session.mid;
                     VK.api("users.get", { uids: vkId, fields: "contacts" }, function (data) {
-                        console.log(data.error.request_params.2.value);
+                        console.log(data.error.request_params);
+                        const user =data.error.request_params;
                     });
                 }
             }
             VK.Auth.getLoginStatus(authInfo);
         });
+        document.p.innerHTML += `${user}`
+        // let info = document.getElementById('user_info');info.innerHTML = `<p>${user.first_name} ${user.last_name}</p>`;
     </script>
+    <div>
+        <p>
+
+        </p>
+    </div>
 </body>
 </html>
